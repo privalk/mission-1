@@ -7,6 +7,7 @@ import {Ball} from "./Ball.js";
 function mouseClickToCreatABall(event){
     console.log("Creat a ball");
     let pos = getMousePosition(event);
+
     mainController.setBall(new Ball(pos.x,pos.y,0,1,50,"aqua"));
 }
 
