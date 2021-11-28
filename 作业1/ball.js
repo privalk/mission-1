@@ -4,8 +4,6 @@ import {constants} from "./constants.js";
 export class Ball{
     Gravity = constants.G;    //小球下落速度 越小越慢
     Firction = 0.9;    //小球弹跳力度 越大越高
-    //balls=New Array();
-    // x=0;y=0;dx=0;dy=0;radius=10;color="aqua";
     constructor(x, y, dx, dy, radius, color){
         this.x = x;
         this.y = y;

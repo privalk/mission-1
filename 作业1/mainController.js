@@ -1,12 +1,13 @@
 import {elements} from "./elements.js";
-import {backGround} from "./resources.js";
+import {backGroundImg} from "./resources.js";
 import {constants} from "./constants.js";
 import {Ball} from "./Ball.js";
 let ballArray = [];
 class MainController{
     #timer
+
     init=()=>{
-        elements.backGroundContext.drawImage(backGround,0,0);
+        elements.backGroundContext.drawImage(backGroundImg,0,0);
         console.log("init completed");
     }
 

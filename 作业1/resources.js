@@ -1,11 +1,13 @@
-export const backGround =new Image()
+export const backGroundImg =new Image()
+export const ballImg =new Image()
 
 const images = []
 
 const register = (img, src) => images.push({img, src})
 
 export const load = async ()=>{
-    register(backGround,'image/backGround.png')
+    register(backGroundImg,'image/backGround.png')
+    register(ballImg,'image/ball.png')
 
     let promises = images.map(e => new Promise(resolve => {
         e.img.src = e.src

@@ -10,6 +10,7 @@ function mouseClickToCreatABall(event){
     let pos = getMousePosition(event);
     let color = constants.COLORARRAY[Math.floor(Math.random() * constants.COLORARRAY.length)];
     mainController.setBall(new Ball(pos.x,pos.y,0,0,25,color));
+
 }
 
 async function main() {
