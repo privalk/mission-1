@@ -5,16 +5,9 @@ import {Ball} from "./Ball.js";
 let ballArray = [];
 class MainController{
     #timer
-    #backGround
-    // /**
-    //  * @type {Ball}
-    //  */
-    #balls=[];
-    
     init=()=>{
         elements.backGroundContext.drawImage(backGround,0,0);
         console.log("init completed");
-        this.#balls=new Ball(0,0,0,0,0,"aqua")
     }
 
     clear = ()=>{

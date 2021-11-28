@@ -1,12 +1,11 @@
 import {elements} from "./elements.js";
+import {constants} from "./constants.js";
 
 export class Ball{
-    Gravity = 0.8;    //小球下落速度 越小越慢
+    Gravity = constants.G;    //小球下落速度 越小越慢
     Firction = 0.9;    //小球弹跳力度 越大越高
     //balls=New Array();
     // x=0;y=0;dx=0;dy=0;radius=10;color="aqua";
-    //小球颜色数组
-    colorArray = ["rgb(65, 105, 225)", "rgb(65, 166, 225)", "rgb(65, 214, 225)", "rgb(65, 225, 190)", "rgb(65, 225, 132)"];
     constructor(x, y, dx, dy, radius, color){
         this.x = x;
         this.y = y;
@@ -34,7 +33,7 @@ export class Ball{
         }
         else {
             //小球  y轴坐标递增 (往下)
-            this.dy += this.Gravity;
+            this.dy += this.Gravity* constants.FRAME_TIME;
         }
         //x 轴临界值判断
         if (this.x + this.radius + this.dx >= elements.canvas.clientWidth || this.x - this.radius + this.dx <= 0) {
