@@ -2,7 +2,7 @@ import {elements} from "./elements.js";
 import {backGroundImg} from "./resources.js";
 import {constants} from "./constants.js";
 import {Ball} from "./Ball.js";
-let ballArray = [];
+export let ballArray = [];
 class MainController{
     #timer
 
@@ -17,16 +17,22 @@ class MainController{
 
     Run = ()=>{
         clearInterval(this.#timer);
-        this.#timer = setInterval(()=>{
-            this.clear()
-            for(let n of ballArray){
-                n.update();
-            }
-            
-        }, constants.FRAME_TIME * 1000)
+        this.setTimer();
+    }
+    drawFrame=()=>{
+        this.clear();
+        for(let n of ballArray){
+            n.update();
+        }
     }
     setBall = (ball)=>{
         ballArray.push(ball);
+    }
+    getTimer=()=>{
+        return this.#timer;
+    }
+    setTimer=()=>{
+        this.#timer = setInterval(this.drawFrame, constants.FRAME_TIME * 1000);
     }
 
 }
