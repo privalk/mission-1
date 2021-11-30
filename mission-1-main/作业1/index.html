@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>p1</title>
+    <style>
+        #myCanvas {
+            background-color: rgba(255,255,255,0);
+            z-index: 9;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            border: inset green;
+        }
+        #backGround{
+            background-color: aqua;
+            z-index: 8;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            border: inset green;
+        }
+    </style>
+</head>
+<body>
+    重力加速度: <input id="GTxt" type="text" value ="9.8">
+    横向速度: <input id="dxTxt" type="text" value="3">
+    <input id="stop" type="button" value="stop">
+    <input id="continue" type="button" value="continue">
+    <canvas id = "myCanvas" width="650" height="650"> </canvas>
+    <canvas id = "backGround" width="650" height="650"> </canvas>
+    <script src = "main.js" type="module"></script>
+</body>
+</html>
