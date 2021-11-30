@@ -8,11 +8,14 @@ class MainController{
 
     init=()=>{
         elements.backGroundContext.drawImage(backGroundImg,0,0);
-        console.log("init completed");
+        elements.backGroundContext.drawImage(backGroundImg,650,0);
+        elements.backGroundContext.drawImage(backGroundImg,-650,0);
+        //console.log("init completed");
     }
 
     clear = ()=>{
-        elements.context.clearRect(0,0,elements.canvas.height,elements.canvas.width);
+        elements.context.clearRect(-1300,0,5200,650);
+        elements.backGroundContext.clearRect(-1300,0,5200,650);
     }
 
     Run = ()=>{
@@ -21,6 +24,7 @@ class MainController{
     }
     drawFrame=()=>{
         this.clear();
+        this.init();
         for(let n of ballArray){
             n.update();
         }

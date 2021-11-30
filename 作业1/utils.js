@@ -1,10 +1,10 @@
 import {elements} from "./elements.js";
-
+import {events} from "./event.js";
 const {canvas} = elements
 //返回鼠标位置
 export const getMousePosition = (event)=>{
         let rectangle = canvas.getBoundingClientRect();
-        let mouseX = (event.pageX - rectangle.left) * (canvas.width / rectangle.width);
+        let mouseX = (event.pageX - rectangle.left-events.getSumMove()) * (canvas.width / rectangle.width);
         let mouseY = (event.pageY - rectangle.top) * (canvas.width / rectangle.width);
         return {x: mouseX, y: mouseY}
 }

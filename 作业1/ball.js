@@ -4,7 +4,7 @@ import {ballImg} from "./resources.js";
 
 export class Ball{
     Gravity = parseFloat(elements.GTxt.value);    //小球下落速度 越小越慢
-    Firction = 0.9;    //小球弹跳力度 越大越高
+    Firction = 0.9;    //摩擦 小球弹跳力度 越大越高
     constructor(x, y, dx, dy){
         this.x = x;
         this.y = y;
@@ -27,19 +27,19 @@ export class Ball{
             //小球 y轴方向改变 （往上）
             this.dy = -this.dy;
             this.dy *= this.Firction;
-            //this.dx *= this.Firction;
+            this.dx *= this.Firction;
         }
         else {
             //小球  y轴坐标递增 (往下)
             this.dy += this.Gravity* constants.FRAME_TIME;
         }
         //x 轴临界值判断
-        if (this.x  + this.dx >= elements.canvas.clientWidth ) {
+        if (this.x  + this.dx >= elements.canvas.clientWidth*2) {
             //小球从左边出来
-            this.x = 0;
+            this.x = -elements.canvas.clientWidth;
         }
-        else if(this.x +70 + this.dx <= 0){
-            this.x=650;
+        else if(this.x +70 + this.dx <= -650){
+            this.x=elements.canvas.clientWidth*2;
         }
          //小球 x,y坐标位置改变（因为之前的 dy,dx有取反过，所以此处会实现上下，左右的运动路线）
          this.y += this.dy;
