@@ -2,6 +2,7 @@ import {elements} from "./elements.js";
 import {backGroundImg} from "./resources.js";
 import {constants} from "./constants.js";
 import {Ball} from "./Ball.js";
+import { events } from "./event.js";
 export let ballArray = [];
 class MainController{
     #timer
@@ -25,6 +26,7 @@ class MainController{
     drawFrame=()=>{
         this.clear();
         this.init();
+        events.moveCamera();
         for(let n of ballArray){
             n.update();
         }

@@ -6,7 +6,8 @@ async function main() {
     elements.canvas.onclick = events.mouseClickToCreatABall;
     elements.GTxt.onchange=events.txtOnChange;
     elements.dxTxt.onchange=events.txtOnChange;
-    window.onkeydown=events.doKeyDownToMoveCamera;
+    window.onkeydown=events.moveLROrder1;
+    window.onkeyup=events.moveLROrder0;
     await load();
     mainController.init();
     mainController.Run();   

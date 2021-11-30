@@ -25,13 +25,33 @@ function continueClick(){
     mainController.setTimer();
 }
 let sumMove=0;
-function doKeyDownToMoveCamera(e){
+let isMoveRight=false;
+let isMoveLeft=false;
+function moveLROrder1(e){
     let KeyID=e.KeyCode?e.KeyCode:e.which;
-    let moveL_R=0;
     if(KeyID===65){
-        if(sumMove+50<=650){
-            moveL_R+=50;
-            sumMove+=50;
+        isMoveLeft=true;
+    }
+    if(KeyID===68){
+        isMoveRight=true;
+    }
+}
+function moveLROrder0(e){
+    let KeyID=e.KeyCode?e.KeyCode:e.which;
+    if(KeyID===65){
+        isMoveLeft=false;
+    }
+    if(KeyID===68){
+        isMoveRight=false;
+    }
+}
+function moveCamera(){
+    let moveL_R=0;
+    let movedegree=3;
+    if(isMoveLeft&&!isMoveRight){
+        if(sumMove+movedegree<=650){
+            moveL_R+=movedegree;
+            sumMove+=movedegree;
         }
         elements.context.translate(moveL_R,0);
         elements.backGroundContext.translate(moveL_R,0);
@@ -41,10 +61,10 @@ function doKeyDownToMoveCamera(e){
         }
         console.log("A");
     }
-    if(KeyID===68){
-        if(sumMove-50>=-650){
-            moveL_R-=50;
-            sumMove-=50;
+    if(isMoveRight&&!isMoveLeft){
+        if(sumMove-movedegree>=-650){
+            moveL_R-=movedegree;
+            sumMove-=movedegree;
         }
         elements.context.translate(moveL_R,0);
         elements.backGroundContext.translate(moveL_R,0);
@@ -63,6 +83,8 @@ export const events={
     mouseClickToCreatABall,
     stopClick,
     continueClick,
-    doKeyDownToMoveCamera,
-    getSumMove
+    moveCamera,
+    getSumMove,
+    moveLROrder1,
+    moveLROrder0
 }
